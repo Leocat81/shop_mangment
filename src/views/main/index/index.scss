@@ -1,0 +1,70 @@
+/*
+* create by junyong.hong
+* email 125173449@qq.com
+* time 2018/4/8
+* description
+*/
+.index-container{
+  width: 100%;
+  .index-container-center{
+    display: flex;
+    width: 85%;
+    margin-left: 7.5%;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    min-height: 850px;
+
+    .center-left{
+      flex: 1;
+      background-color: #F8F8FD;
+      padding: 20px 30px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 30px rgba(10, 10, 0, 0.1) inset;
+    }
+    /* 首页文章 */
+    .center-left-index{
+      flex: 1;
+      .index-article{
+        background-color: #F8F8FD;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 30px rgba(10, 10, 0, 0.1) inset;
+        &:nth-child(n){
+          margin: 0 0 20px 0;
+        }
+        &:nth-child(2n){
+          margin: 0 0 20px 0;
+        }
+        .index-article-main{
+          padding: 20px 30px;
+        }
+        .index-article-footer{
+          display: flex;
+          border-top: 1px solid #e3e3e3;
+          height: 40px;
+          line-height: 40px;
+          cursor: pointer;
+          span{
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid #e3e3e3;
+          }
+        }
+      }
+      .page{
+        text-align: center;
+        li {
+          display: inline-block;
+        }
+      }
+    }
+    .center-right{
+      width: 300px;
+      height: auto;
+      > div {
+        margin-left: 25px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        background-color: #F8F8FD;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 30px rgba(10, 10, 0, 0.1) inset;
+      }
+    }
+  }
+}
