@@ -23,7 +23,7 @@ require('../util/date')
 // MarkDown
 var MarkDown = require('markdown').markdown
 
-mongoose.connect('mongodb://127.0.0.1:27017/test')
+mongoose.connect('mongodb://127.0.0.1:27017/shop')
 
 // 连接成功
 mongoose.connection.on('connected', function () {
@@ -48,10 +48,10 @@ mongoose.connection.on('disconnected', function () {
 router.post('/login', function (req, res, next) {
   // 查询的参数
   var param = {
-    userName: req.body.userName,
-    userPwd: req.body.userPwd
+    username: req.body.username,
+    password:req.body.password
   }
-  Admin.findOne(param, function (err, doc) {
+  Admin.find(param, function (err, doc) {
     // 请求错误
     if (err) {
       res.json({
@@ -117,8 +117,8 @@ router.get('/checkLogin', function (req, res, next) {
 })
 router.post('/addAdmin', function (req, res, next) {
   let a= new Admin({
-    userName: req.body.userName,
-    userPwd:req.body.userPwd
+    username: req.body.username,
+    password:req.body.password
   });
   // 不存在，进行添加
   a.save(function (err2, doc2) {

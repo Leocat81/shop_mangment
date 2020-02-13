@@ -17,7 +17,7 @@ var Article = require('../models/Article');
 //轮播
 var Swipe = require('../models/Swipe');
 
-mongoose.connect('mongodb://127.0.0.1:27017/vue-node-blog');
+mongoose.connect('mongodb://127.0.0.1:27017/shop');
 
 // 连接成功
 mongoose.connection.on('connected', function () {

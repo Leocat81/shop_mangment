@@ -21,12 +21,12 @@ module.exports = new mongoose.Schema({
   /**
    * 用户帐号
    */
-  userName: String,
+  username: String,
 
   /**
    * 用户密码
    */
-  userPwd: String,
+  password: String,
 
   /**
    * 用户真实姓名
