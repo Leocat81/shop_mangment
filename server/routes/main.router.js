@@ -16,8 +16,9 @@ var mongoose = require('mongoose');
 var Article = require('../models/Article');
 //轮播
 var Swipe = require('../models/Swipe');
-
-mongoose.connect('mongodb://127.0.0.1:27017/vue-node-blog');
+// 宫格
+var Grid = require('../models/Grid');
+mongoose.connect('mongodb://127.0.0.1:27017/test');
 
 // 连接成功
 mongoose.connection.on('connected', function () {
@@ -56,7 +57,9 @@ router.post('/addSwipe', function (req, res, next) {
     }
   })
 })
-router.get('/getSwipe', function (req, res, next) {Swipe.find({userId: req.query.userId}).exec(function (err, doc) {
+router.get('/getSwipe', function (req, res, next) {
+  Swipe.find({userId: req.query.userId})
+    .exec(function (err, doc) {
     if (err) {
       res.json({
         status: '1',
@@ -73,6 +76,49 @@ router.get('/getSwipe', function (req, res, next) {Swipe.find({userId: req.query
       })
     }
   })
+})
+/*================================== 添加首页宫格 begin =======================================*/
+router.post('/addGrid', function (req, res, next) {
+  let params= new Grid({
+    title: req.body.title,
+    iconUrl:req.body.iconUrl
+  });
+  // 不存在，进行添加
+  params.save(function (err2, doc2) {
+    if (err2) {
+      res.json({
+        status: '1',
+        msg: err2.message,
+        result: ''
+      })
+    } else {
+      res.json({
+        status: '0',
+        msg: '添加成功~',
+        result: ''
+      })
+    }
+  })
+})
+router.get('/getGrid', function (req, res, next) {
+  Grid.find()
+    .exec(function (err, doc) {
+      if (err) {
+        res.json({
+          status: '1',
+          msg: err.message,
+          result: ''
+        })
+      } else {
+        res.json({
+          status: '0',
+          msg: '',
+          result: {
+            list: doc
+          }
+        })
+      }
+    })
 })
 /*================================== 获取文章信息 begin =======================================*/
 /**
