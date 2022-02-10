@@ -24,7 +24,7 @@
     "marked": "^0.3.19",
     "mongoose": "^5.0.13",
     "morgan": "^1.9.0",
-    "node-sass": "^4.8.3",
+    "node-sass": "^7.0.0",
     "sass-loader": "^6.0.7",
     "serve-favicon": "^2.5.0",
     "style-loader": "^0.20.3",
